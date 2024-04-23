@@ -91,6 +91,18 @@
   }
 }
 
+header {
+  background: var(--bs-pink);
+}
+
+footer {
+  background: var(--bs-pink);
+}
+
+.badge {
+  background: var(--bs-pink);
+}
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
