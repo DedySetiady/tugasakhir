@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+
 
 class AuthController extends Controller
 {
@@ -39,4 +42,34 @@ class AuthController extends Controller
         return redirect('login')
                                 ->withInput()
                                 ->withErrors(['login_gagal' => 'Username dan Passowrd Salah']);
-    }}
+    }
+
+    public function register(){
+        return view('register');
+    }
+
+    public function simpanregister(Request $request)
+{
+    User::create([
+        'name' => $request->name,
+        'username' => $request->username, // Pastikan nilai ini sesuai dengan input form Anda
+        'email' => $request->email,
+        'password' => bcrypt($request->password),
+        'level' => 'pelanggan',
+    ]);
+
+    // Jika registrasi berhasil, arahkan pengguna ke halaman login
+    return redirect()->route('login')->with('success', 'Registrasi berhasil. Silakan login.');
+}
+
+public function logout(Request $request)
+{
+    Auth::logout();
+
+    $request->session()->invalidate();
+
+    $request->session()->regenerateToken();
+
+    return redirect('/');
+}
+}

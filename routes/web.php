@@ -21,8 +21,12 @@ use App\Http\Controllers\PimpinanController;
 
 Route::get('/', [LandingpageController::class, 'index']);
 
+Route::get('register', 'App\Http\Controllers\AuthController@register')->name('register');
+Route::post('simpanregister', 'App\Http\Controllers\AuthController@simpanregister')->name('simpanregister');
 Route::get('login', 'App\Http\Controllers\AuthController@index')->name('login');
 Route::post('proses_login', 'App\Http\Controllers\AuthController@proses_login')->name('proses_login');
+
+Route::post('/logout', 'App\Http\Controllers\AuthController@logout')->name('logout');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::middleware(['cek_login:admin'])->group(function () {

@@ -88,9 +88,17 @@
                                                 </div>
                                             </div>
                                             <div
-                                                class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                {{-- <a class="small" href="#">Forgot Password?</a> --}}
-                                                <button class="btn btn-primary btn-block" type="submit">Login</button>
+    class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+    <button class="btn btn-primary btn-block" type="submit">Login</button>
+    <button class="btn btn-primary btn-block" type="button" id="btnRegister">Registrasi</button>
+</div>
+<script>
+    document.getElementById('btnRegister').addEventListener('click', function() {
+        window.location.href = '{{ route("register") }}';
+    });
+</script>
+
+
                                             </div>
                                         </form>
                                     </div>
