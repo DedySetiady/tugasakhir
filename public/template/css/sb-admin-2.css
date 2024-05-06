@@ -47,6 +47,10 @@
   box-sizing: border-box;
 }
 
+.sidebar {
+  background-color: #e83e8c;
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.15;

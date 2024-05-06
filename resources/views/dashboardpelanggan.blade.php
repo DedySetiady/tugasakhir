@@ -42,19 +42,25 @@
                     @auth
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('logout') }}"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Logout
                         </a>
                     </li>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
-                    @else
+                @else
                     <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
-                    @endauth
-
+                @endauth
+                
                 </ul>
-
+                <form class="d-flex">
+                    <button class="btn btn-outline-dark" type="submit">
+                        <i class="bi-cart-fill me-1"></i>
+                        Cart
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    </button>
+                </form>
             </div>
         </div>
     </nav>
